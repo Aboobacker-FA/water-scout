@@ -8,20 +8,19 @@ Long Description about project. This project do that. This project is awesome...
 - ADVAITH S DEV
   
 ## Link to product walkthrough
-[link to video](Link-here)
-Add your ppt to your repository  
-Also Add the name below.
+
+Project-WaterScout-CodeBlack.pptx
 
 ## How it Works ?
 Explaining the working of project
 Embed video of project demo
-
+[link to video](https://youtu.be/4vPOAqB4oWQ)
 
 ## Libraries used
-HTML CSS Javascript
+HTML, CSS, Javascript
 
 ## How to configure
 Instructions for setting up project
 
 ## How to Run
-Instructions for running
+open the website https://reg.html
