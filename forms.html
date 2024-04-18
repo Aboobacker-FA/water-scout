@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Quality Review</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Water Quality Review</h1>
+    <p>Let's assess your water quality!</p>
+    <form id="water-form">
+      <div class="form-group">
+        <label for="location">Location (Optional):</label>
+        <input type="text" id="location" name="location" placeholder="City, State (e.g. New York, NY)">
+      </div>
+      <div class="form-group">
+        <label for="source">Water source:</label>
+        <select id="source" name="source">
+          <option value="groundwell">Ground well/Borewell</option>
+          <option value="municipality">Municipal water</option>
+          <option value="other">Other (please specify)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="data">Do you have scientific data (TDS meter or lab results):</label>
+        <select id="data" name="data">
+          <option value="no">No</option>
+          <option value="tds">TDS meter reading</option>
+          <option value="lab">Lab results</option>
+        </select>
+      </div>
+      <div id="no-data" class="hidden">
+        <h2>Basic Observations</h2>
+        <div class="form-group">
+          <label for="taste">Taste:</label>
+          <select id="taste" name="taste">
+            <option value="excellent">Excellent (refreshing and pure)</option>
+            <option value="poor">Poor (noticeable unpleasant flavors)</option>
+            <option value="bad">Bad (undrinkable)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="color">Color:</label>
+          <select id="color" name="color">
+            <option value="5">Colorless and transparent</option>
+            <option value="4">Slight coloration, but still clear</option>
+            <option value="3">Noticeable coloration, but not off-putting</option>
+            <option value="2">Significant discoloration, slightly off-putting</option>
+            <option value="1">Heavy discoloration, unappealing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="odor">Odor:</label>
+          <select id="odor" name="odor">
+            <option value="5">Odorless or pleasant, neutral scent</option>
+            <option value="4">Slight odor, not offensive</option>
+            <option value="3">Noticeable odor, but not overpowering</option>
+            <option value="2">Strong odor, slightly unpleasant</option>
+            <option value="1">Foul odor, unbearable</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cleanliness">Cleanliness:</label>
+          <select id="cleanliness" name="cleanliness">
+            <option value="5">Crystal clear and visibly clean</option>
+            <option value="4">Clean with minimal particles or sediment</option>
+            <option value="3">Slight cloudiness or sediment present, but still acceptable</option>
+            <option value="2">Noticeable particles or sediment, somewhat concerning</option>
+            <option value="1">Murky, visibly dirty, or contaminated</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hardness">Hardness:</label>
+          <select id="hardness" name="hardness">
+            <option value="5">Soft water (smooth and gentle on skin and appliances)</option>
+            <option value="4">Slightly soft water (minimal scale buildup)</option>
+            <option value="3">Moderately hard water (some scale buildup but manageable)</option>
+            <option value="2">
+                <option value="1">Very hard water (significant scale buildup, requires immediate treatment)</option>
+            </select>
+          </div>
+        </div>
+        <div id="tds-data" class="hidden">
+          <h2>TDS Meter Reading</h2>
+          <div class="form-group">
+            <label for="tds-value">TDS value:</label>
+            <input type="number" id="tds-value" name="tds-value" placeholder="Enter TDS value">
+          </div>
+          <h2>Basic Observations (Optional)</h2>
+          <div class="form-group">
+            <label for="taste-tds">Taste:</label>
+            <select id="taste-tds" name="taste-tds">
+              <option value="">Select taste (optional)</option>
+              <option value="excellent">Excellent (refreshing and pure)</option>
+              <option value="poor">Poor (noticeable unpleasant flavors)</option>
+              <option value="bad">Bad (undrinkable)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="color-tds">Color:</label>
+            <select id="color-tds" name="color-tds">
+              <option value="">Select color (optional)</option>
+              <option value="5">Colorless and transparent</option>
+              <option value="4">Slight coloration, but still clear</option>
+              <option value="3">Noticeable coloration, but not off-putting</option>
+              <option value="2">Significant discoloration, slightly off-putting</option>
+              <option value="1">Heavy discoloration, unappealing</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="odor-tds">Odor:</label>
+            <select id="odor-tds" name="odor-tds">
+              <option value="">Select odor (optional)</option>
+              <option value="5">Odorless or pleasant, neutral scent</option>
+              <option value="4">Slight odor, not offensive</option>
+              <option value="3">Noticeable odor, but not overpowering</option>
+              <option value="2">Strong odor, slightly unpleasant</option>
+              <option value="1">Foul odor, unbearable</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cleanliness-tds">Cleanliness:</label>
+            <select id="cleanliness-tds" name="cleanliness-tds">
+              <option value="">Select cleanliness (optional)</option>
+              <option value="5">Crystal clear and visibly clean</option>
+              <option value="4">Clean with minimal particles or sediment</option>
+              <option value="3">Slight cloudiness or sediment present, but still acceptable</option>
+              <option value="2">Noticeable particles or sediment, somewhat concerning</option>
+              <option value="1">Murky, visibly dirty, or contaminated</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hardness-tds">Hardness:</label>
+            <select id="hardness-tds" name="hardness-tds">
+              <option value="">Select hardness (optional)</option>
+              <option value="5">Soft water (smooth and gentle on skin and appliances)</option>
+              <option value="4">Slightly soft water (minimal scale buildup)</option>
+              <option value="3">Moderately hard water (some scale buildup but manageable)</option>
+              <option value="2">Hard water (noticeable scale buildup, may require treatment)</option>
+              <option value="1">Very hard water (significant scale buildup, requires immediate treatment)</option>
+            </select>
+          </div>
+        </div>
+        <div id="lab-data" class="hidden">
+          <h2>Lab Results (Optional)</h2>
+          <div class="form-group">
+            <label for="ph">pH value:</label>
+            <input type="number" step="0.01" id="ph" name="ph" placeholder="Enter pH value">
+          </div>
+          <div class="form-group">
+            <label for="tds-lab">TDS value (mg/L):</label>
+            <input type="number" id="tds-lab" name="tds-lab" placeholder="Enter">
+            <input type="number" id="tds-lab" name="tds-lab" placeholder="Enter TDS value (mg/L)">
+        </div>
+        <div class="form-group">
+          <label for="chlorine">Chlorine residual (mg/L):</label>
+          <input type="number" step="0.01" id="chlorine" name="chlorine" placeholder="Enter chlorine residual (mg/L)">
+        </div>
+        <div class="form-group">
+          <label for="do">Dissolved Oxygen (mg/L):</label>
+          <input type="number" step="0.01" id="do" name="do" placeholder="Enter Dissolved Oxygen (mg/L)">
+        </div>
+        <div class="form-group">
+          <label for="coliforms">Total coliforms/100ml:</label>
+          <input type="number" id="coliforms" name="coliforms" placeholder="Enter total coliforms/100ml">
+        </div>
+        <div class="form-group">
+          <label for="fcoliforms">Fecal coliforms/100ml:</label>
+          <input type="number" id="fcoliforms" name="fcoliforms" placeholder="Enter fecal coliforms/100ml">
+        </div>
+        <div class="form-group">
+          <label for="hardness-lab">Total hardness (mg/L):</label>
+          <input type="number" id="hardness-lab" name="hardness-lab" placeholder="Enter total hardness (mg/L)">
+        </div>
+        <div class="form-group">
+          <label for="turbidity">Turbidity (NTU):</label>
+          <input type="number" step="0.01" id="turbidity" name="turbidity" placeholder="Enter turbidity (NTU)">
+        </div>
+        <div class="form-group">
+          <label for="nitrate">Nitrate-Nitrite (mg/L):</label>
+          <input type="number" step="0.01" id="nitrate" name="nitrate" placeholder="Enter Nitrate-Nitrite (mg/L)">
+        </div>
+        <div class="form-group">
+          <label for="metals">Heavy Metals (mg/L):</label>
+          <div class="metals-container">
+            <label for="lead">Lead:</label>
+            <input type="number" step="0.001" id="lead" name="lead" placeholder="Enter lead value">
+          </div>
+          <div class="metals-container">
+            <label for="arsenic">Arsenic:</label>
+            <input type="number" step="0.001" id="arsenic" name="arsenic" placeholder="Enter arsenic value">
+          </div>
+          <div class="metals-container">
+            <label for="cadmium">Cadmium:</label>
+            <input type="number" step="0.001" id="cadmium" name="cadmium" placeholder="Enter cadmium value">
+          </div>
+          <div class="metals-container">
+            <label for="mercury">Mercury:</label>
+            <input type="number" step="0.001" id="mercury" name="mercury" placeholder="Enter mercury value">
+          </div>
+        </div>
+      </div>
+      <button onclick="history.back()" type="submit">Submit Review</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+  <script src="script0.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Survey</title>
+    <link rel="stylesheet" href="style-ana.css">
+</head>
+<body>
+    <div class="container" id="surveyContainer">
+        <h2>Water Quality Survey</h2>
+        <form id="surveyForm">
+            <label for="question1">Taste:</label>
+            <select name="question1" id="question1">
+                <option value="option1">Badtaste,Undrinkable</option>
+                <option value="option2">Poor taste,noticeable unpleasant flavours</option>
+                <option value="option3">Average taste,acceptable,but not remarkable</option>
+                <option value="option4">Good taste,pleasant to drink</option>
+                <option value="option5">Excellent taste,refreshing and pure.</option>
+            </select>
+            <label for="question2">Color:</label>
+            <select name="question2" id="question2">
+                <option value="option1">Heavy discoloration, Unappealing</option>
+                <option value="option2">Significant discoloration, Slightly offputting</option>
+                <option value="option3">Noticeable coloration,but not off-putting</option>
+                <option value="option4">Slight coloraion, but still clear</option>
+                <option value="option5">Colorless and transparent</option>
+            </select>
+            <label for="question3">Odor:</label>
+            <select name="question3" id="question3">
+                <option value="option1">Foul odor, unubearable</option>
+                <option value="option2">Strong odor,slightly unpleasant</option>
+                <option value="option3">Noticeable odor,but not overpowering</option>
+                <option value="option4">Slight odor,not offensive</option>
+                <option value="option5">Odorless</option>
+            </select>
+            <label for="question4">Hardness/Softness:</label>
+            <select name="question4" id="question4">
+                <option value="option1">Veery hard water,significant scale buildup,requires immediate treatment</option>
+                <option value="option2">Hard water,noticeable scale buildup,may require treatment</option>
+                <option value="option3">Moderately hardwater,some scale buildup,but managable</option>
+                <option value="option4">Slightly soft water,minimal scale buildup</option>
+                <option value="option5">Soft water,smooth</option>
+            </select>
+            <button type="button" onclick="calculateRating()">Submit</button>
+        </form>
+    </div>
+
+    <div class="container" id="resultContainer" style="display: none;">
+        <h2>Survey Result</h2>
+        <p id="rating"></p>
+    </div>
+
+    <script>
+        function calculateRating() {
+            var a = parseInt(document.getElementById('question1').value.charAt(6));
+            var b = parseInt(document.getElementById('question2').value.charAt(6));
+            var c = parseInt(document.getElementById('question3').value.charAt(6));
+            var d = parseInt(document.getElementById('question4').value.charAt(6));
+
+            var avg = (a + b + c + d) / 4;
+            var rating;
+
+            if (a === 1 || b === 1 || c === 1 || d === 1) {
+                rating = avg;
+            } else if (a === 2 || b === 2 || c === 2 || d === 2) {
+                rating = avg * 1.5;
+            } else {
+                rating = avg * 2;
+            }
+
+            // Display the rating
+            var resultContainer = document.getElementById('resultContainer');
+            var surveyContainer = document.getElementById('surveyContainer');
+            var ratingElement = document.getElementById('rating');
+            ratingElement.textContent = "Rating: " + rating + " of 10";
+
+            resultContainer.style.display = 'block';
+            //surveyContainer.style.display = 'none';
+
+            // Output based on rating ranges
+            var output = "";
+            if (rating >= 1 && rating < 3) {
+                output = "Water is very bad.\nNeed to contact water authority immediately.\nUnusable.";
+            } else if (rating >= 3 && rating < 5) {
+                output = "Water is bad.\nRequires heavy purification.\nReverse osmosis filter is required.";
+            } else if (rating >= 5 && rating < 7) {
+                output = "Water is fine.\nRequires purification.\nActivated carbon filters are required.";
+            } else if (rating >= 7 && rating < 9) {
+                output = "Water is good.\nRequires purification.\nUV purifier is required.";
+            } else if (rating >= 9 && rating <= 10) {
+                output = "Water is excellent.\nSuitable for drinking and all other purposes.";
+            }
+
+            // Display the output
+            var outputElement = document.createElement('p');
+            outputElement.textContent = output;
+            resultContainer.appendChild(outputElement);
+        }
+    </script>
+</body>
+</html>
