@@ -2,8 +2,10 @@
 Long Description about project. This project do that. This project is awesome...
 
 ## Team members
-- Name 1
-- Name 2
+- ARJUN B
+- ABOOBACKER F A
+- AKASH M P
+- ADVAITH S DEV
   
 ## Link to product walkthrough
 [link to video](Link-here)
