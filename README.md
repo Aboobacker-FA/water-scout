@@ -1,9 +1,10 @@
-# Project Name
+# Water Scout
 Long Description about project. This project do that. This project is awesome...
 
 ## Team members
 - Name 1
 - Name 2
+  
 ## Link to product walkthrough
 [link to video](Link-here)
 Add your ppt to your repository  
@@ -15,7 +16,7 @@ Embed video of project demo
 
 
 ## Libraries used
-Library Name - Version
+HTML CSS Javascript
 
 ## How to configure
 Instructions for setting up project
