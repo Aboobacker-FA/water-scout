@@ -23,4 +23,4 @@ HTML, CSS, Javascript
 Instructions for setting up project
 
 ## How to Run
-open the website https://reg.html
+
